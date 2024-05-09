@@ -1,6 +1,7 @@
-const distance = Number.parseInt(prompt('Inserisci il numero di km che vuoi percorrere'));
+const userDistance = Number.parseFloat(prompt('Inserisci il numero di km che vuoi percorrere'));
 const userAge = Number.parseInt(prompt('Inserisci la tua età'));
-const ticketFullPrice = distance * 0.276;
+const pricePerKm = 0.276;
+const ticketFullPrice = userDistance * pricePerKm;
 let ticketPrice;
 
 if (userAge < 18){
@@ -13,7 +14,7 @@ if (userAge < 18){
 
 console.log(ticketPrice.toFixed(2) + '€');
 
-document.getElementById('distance-km').innerHTML = distance + ' km';
+document.getElementById('distance-km').innerHTML = userDistance + ' km';
 document.getElementById('user-age').innerHTML = userAge + ' anni';
 
 if (userAge < 18 || userAge >= 65){
@@ -23,3 +24,14 @@ if (userAge < 18 || userAge >= 65){
 }
 
 document.getElementById('ticket-price').innerHTML = ticketPrice.toFixed(2) + ' €';
+
+/*
+let discount = 0;
+if (userAge < 18) {
+    discount = 21;
+} else if (userAge >= 65) {
+    discount = 42;
+}
+
+ticketPrice = (ticketFullPrice /100) * discount;
+*/
